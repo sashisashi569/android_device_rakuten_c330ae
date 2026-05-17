@@ -476,3 +476,9 @@ PRODUCT_PACKAGES += \
     firmware_WCNSS_qcom_cfg.ini_symlink \
     firmware_WCNSS_qcom_wlan_nv.bin_symlink \
     firmware_WCNSS_wlan_dictionary.dat_symlink
+
+# USB default to ADB mode on userdebug builds
+ifeq ($(TARGET_BUILD_VARIANT),userdebug)
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    persist.sys.usb.config=adb
+endif
